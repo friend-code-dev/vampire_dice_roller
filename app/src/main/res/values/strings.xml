@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vampire Dice Roller</string>
+    <string name="roll">roll</string>
+    <string name="regular_dice">regular dice</string>
+    <string name="hunger_dice">hunger dice</string>
+    <string name="difficulty_level">difficulty level</string>
+</resources>

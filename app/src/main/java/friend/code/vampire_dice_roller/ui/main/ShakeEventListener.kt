@@ -8,6 +8,9 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import friend.code.vampire_dice_roller.utilities.MathUtils
 
+private const val ACCELERATION_RECORD_SIZE: Int = 5
+private const val SHAKE_ACCELERATION_THRESHOLD: Float = 20f
+
 class ShakeEventListener(
     private val sensorManager: SensorManager,
     private val mainFragment: MainFragment,
@@ -15,11 +18,9 @@ class ShakeEventListener(
 
     private val TAG: String = this.javaClass.simpleName
 
-    private val SHAKE_ACCELERATION_THRESHOLD: Float = 20f
     private var shakeDetector: Sensor =
         sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
 
-    private val ACCELERATION_RECORD_SIZE: Int = 5
     private var accelerationRecord: FloatArray = FloatArray(ACCELERATION_RECORD_SIZE)
     private var i: Int = 0
 

@@ -17,15 +17,13 @@ class ShakeEventListener(
 ) : SensorEventListener {
 
     private val TAG: String = this.javaClass.simpleName
-
-    private var shakeDetector: Sensor =
-        sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
-
     private var accelerationRecord: FloatArray = FloatArray(ACCELERATION_RECORD_SIZE)
     private var i: Int = 0
 
     fun onResume() {
-        sensorManager.registerListener(this, shakeDetector, SensorManager.SENSOR_DELAY_NORMAL)
+        sensorManager.registerListener(this,
+                                       sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION),
+                                       SensorManager.SENSOR_DELAY_NORMAL)
     }
 
     fun onPause() {
